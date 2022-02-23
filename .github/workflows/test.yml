@@ -1,0 +1,19 @@
+name: Github Action Test
+
+on:
+  push
+
+jobs:
+  vulcan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test vulcan action
+        uses: Suresoft-GLaDOS/vulcan-action@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check some commands
+        run: |
+          echo $(pwd)
+          echo $(ls)
+          echo $GITHUB_WORKSPACE
